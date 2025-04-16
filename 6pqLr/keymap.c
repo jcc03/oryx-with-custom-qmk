@@ -135,19 +135,36 @@ bool rgb_matrix_indicators_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
+  // Suppress all key presses while LGUI is held, unless it's an arrow key
+  if (record->event.pressed) {
+    uint8_t mods = get_mods() | get_weak_mods() | get_oneshot_mods();
+    if (mods & MOD_BIT(KC_LGUI)) {
+      switch (keycode) {
+        case KC_LEFT:
+        case KC_DOWN:
+        case KC_RIGHT:
+        case KC_UP:
+        case LT(1,KC_SPACE):
+          break; // allow arrow keys
+        default:
+          return false; // suppress everything else when LGUI is held
+      }
+    }
+  }
+  // Handle other custom keycode logic
+    switch (keycode) {
 
-    case RGB_SLD:
-      if (record->event.pressed) {
+      case RGB_SLD:
+        if (record->event.pressed) {
         rgblight_mode(1);
       }
-      return false;
-    case HSV_129_39_255:
-      if (record->event.pressed) {
+        return false;
+      case HSV_129_39_255:
+        if (record->event.pressed) {
         rgblight_mode(1);
         rgblight_sethsv(129,39,255);
       }
-      return false;
+        return false;
   }
   return true;
 }
@@ -255,3 +272,15 @@ tap_dance_action_t tap_dance_actions[] = {
         [DANCE_2] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_2_finished, dance_2_reset),
         [DANCE_3] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_3_finished, dance_3_reset),
 };
+
+//CHORDAL SPECIAL HANDLING//
+bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
+  uint16_t other_keycode, keyrecord_t* other_record) {
+// Always treat LT(1, KC_SPACE) as a chord (hold), regardless of context
+if (tap_hold_keycode == LT(1, KC_SPACE)) {
+return true;
+}
+
+// Use default chordal hold logic for everything else
+return get_chordal_hold_default(tap_hold_record, other_record);
+}
