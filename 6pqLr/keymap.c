@@ -273,14 +273,29 @@ tap_dance_action_t tap_dance_actions[] = {
         [DANCE_3] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_3_finished, dance_3_reset),
 };
 
+
+
+
+
 //CHORDAL SPECIAL HANDLING//
-bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
-  uint16_t other_keycode, keyrecord_t* other_record) {
+  bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
+    uint16_t other_keycode, keyrecord_t* other_record) {
 // Always treat LT(1, KC_SPACE) as a chord (hold), regardless of context
-if (tap_hold_keycode == LT(1, KC_SPACE)) {
-return true;
+  if (tap_hold_keycode == LT(1, KC_SPACE)) {
+    return true;
 }
 
 // Use default chordal hold logic for everything else
 return get_chordal_hold_default(tap_hold_record, other_record);
 }
+
+//BACKSPACE OVERRIDE 
+  const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+//BRACKET OVERRIDE
+  const key_override_t parenthesis1_override = ko_make_basic(MOD_MASK_SHIFT, KC_LBRC, KC_LCBR);
+  const key_override_t parenthesis2_override = ko_make_basic(MOD_MASK_SHIFT, KC_RBRC, KC_LCBR);
+// This globally defines all key overrides to be used
+  const key_override_t **key_overrides = (const key_override_t *[]){
+	&delete_key_override,
+	  NULL // Null terminate the array of overrides! 
+};
