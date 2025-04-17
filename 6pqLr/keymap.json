@@ -1,3 +1,5 @@
 {
-    "modules": ["getreuer/tap_flow"]
-  }
+  "keyboard": "zsa/voyager",
+  "keymap": "6pqLr",
+  "modules": ["getreuer/tap_flow"]
+}
