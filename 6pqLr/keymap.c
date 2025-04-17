@@ -70,8 +70,12 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return TAPPING_TERM + 100;
         case MT(MOD_LSFT, KC_F):
             return TAPPING_TERM -75;
+        case TD(DANCE_0):
+            return TAPPING_TERM + 100;
         case KC_Z:
             return TAPPING_TERM + 150;
+        case TD(DANCE_1):
+            return TAPPING_TERM + 100;
         case KC_P:
             return TAPPING_TERM + 150;
         case MT(MOD_RSFT, KC_J):
@@ -84,10 +88,14 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return TAPPING_TERM + 100;
         case KC_SLASH:
             return TAPPING_TERM + 150;
+        case LT(1,KC_SPACE):
+            return TAPPING_TERM + 100;
         case KC_END:
             return TAPPING_TERM -100;
         case KC_LEFT:
             return 0;
+        case TD(DANCE_2):
+            return TAPPING_TERM + 100;
         case KC_TRANSPARENT:
             return 0;
         default:
