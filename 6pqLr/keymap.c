@@ -128,7 +128,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KC_DOWN:
         case KC_RIGHT:
         case KC_UP:
-        case LT(1,KC_SPACE):
+        case TD(DANCE_2):
         case KC_L:
           break; // allow arrow keys and L
         default:
@@ -297,8 +297,8 @@ tap_dance_action_t tap_dance_actions[] = {
 //CHORDAL SPECIAL HANDLING//
   bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
     uint16_t other_keycode, keyrecord_t* other_record) {
-// Always treat LT(1, KC_SPACE) as a chord (hold), regardless of context
-  if (tap_hold_keycode == LT(1, KC_SPACE)) {
+// Always treat LT(1, KC_SPACE)/TD(DANCE_2) as a chord (hold), regardless of context
+  if (tap_hold_keycode == TD(DANCE_2)) {
     return true;
 }
 
