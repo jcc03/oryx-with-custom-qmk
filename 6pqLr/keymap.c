@@ -131,7 +131,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KC_RIGHT:
         case KC_UP:
         case LT(1,KC_SPACE):
-          break; // allow arrow keys
+        case KC_L:
+          break; // allow arrow keys and L
         default:
           return false; // suppress everything else when LGUI is held
       }
