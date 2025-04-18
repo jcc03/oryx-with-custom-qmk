@@ -60,49 +60,6 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo3, LCTL(KC_V)),
 };
 
-uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case KC_A:
-            return TAPPING_TERM + 100;
-        case MT(MOD_LALT, KC_S):
-            return TAPPING_TERM + 100;
-        case MT(MOD_LCTL, KC_D):
-            return TAPPING_TERM + 100;
-        case MT(MOD_LSFT, KC_F):
-            return TAPPING_TERM -75;
-        case TD(DANCE_0):
-            return TAPPING_TERM + 100;
-        case MT(MOD_LGUI, KC_Z):
-            return TAPPING_TERM + 150;
-        case TD(DANCE_1):
-            return TAPPING_TERM + 100;
-        case KC_P:
-            return TAPPING_TERM + 150;
-        case MT(MOD_RSFT, KC_J):
-            return TAPPING_TERM -75;
-        case MT(MOD_LCTL, KC_K):
-            return TAPPING_TERM + 100;
-        case MT(MOD_LALT, KC_L):
-            return TAPPING_TERM + 100;
-        case KC_SCLN:
-            return TAPPING_TERM + 100;
-        case MT(MOD_RGUI, KC_SLASH):
-            return TAPPING_TERM + 150;
-        case LT(1,KC_SPACE):
-            return TAPPING_TERM + 100;
-        case KC_END:
-            return TAPPING_TERM -100;
-        case KC_LEFT:
-            return 0;
-        case TD(DANCE_2):
-            return TAPPING_TERM + 100;
-        case KC_TRANSPARENT:
-            return 0;
-        default:
-            return TAPPING_TERM;
-    }
-}
-
 extern rgb_config_t rgb_matrix_config;
 
 void keyboard_post_init_user(void) {
