@@ -84,6 +84,16 @@ void set_layer_color(int layer) {
   }
 }
 
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+      case MT(MOD_LSFT, KC_F):
+      case MT(MOD_RSFT, KC_J):
+          return TAPPING_TERM - 100;
+      default:
+          return TAPPING_TERM;
+    }
+}
+
 bool rgb_matrix_indicators_user(void) {
   if (rawhid_state.rgb_control) {
       return false;
