@@ -14,7 +14,7 @@
 #define RGB_MATRIX_STARTUP_SPD 60
 
 //Custom Config.h
-#define DEBOUNCE 1
+#define FORCE_NKRO
 #define USB_POLLING_INTERVAL_MS 1
 #define MATRIX_IO_DELAY 0
 
