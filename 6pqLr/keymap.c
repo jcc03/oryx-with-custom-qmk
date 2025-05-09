@@ -48,11 +48,11 @@ const uint16_t PROGMEM combo3[] = { KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM combo4[] = { KC_G, KC_H, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-    COMBO(combo0, LALT(LSFT(KC_TAB))),
+    COMBO(combo0, LALT(LCTL(KC_TAB))),
     COMBO(combo1, KC_CAPS),
     COMBO(combo2, LCTL(KC_C)),
     COMBO(combo3, LCTL(KC_V)),
-    COMBO(combo4, LALT(LSFT(KC_TAB))),
+    COMBO(combo4, LALT(LCTL(KC_TAB))),
 };
 
 extern rgb_config_t rgb_matrix_config;
