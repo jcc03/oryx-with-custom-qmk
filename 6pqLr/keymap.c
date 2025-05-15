@@ -46,7 +46,6 @@ const uint16_t PROGMEM combo2[] = { KC_C, KC_X, COMBO_END};
 const uint16_t PROGMEM combo3[] = { KC_C, KC_V, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-    COMBO(combo0, LALT(LCTL(KC_TAB))),
     COMBO(combo1, KC_CAPS),
     COMBO(combo2, LCTL(KC_C)),
     COMBO(combo3, LCTL(KC_V)),
