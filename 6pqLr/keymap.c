@@ -36,7 +36,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESCAPE,      KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           TD(DANCE_4),    
     KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_MINUS,       
     KC_LEFT_SHIFT,  KC_A,           KC_S,           KC_D,           KC_F,           KC_G,                                           KC_H,           KC_J,           KC_K,           KC_L,           KC_SCLN,        KC_BSLS,        
-    TD(DANCE_3),    KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_TRANSPARENT, 
+    TD(DANCE_3),    KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       LALT(KC_TAB),   
                                                     KC_BSPC,        KC_LEFT_CTRL,                                   KC_ENTER,       KC_SPACE
   ),
 };
@@ -44,13 +44,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 const uint16_t PROGMEM combo0[] = { MT(MOD_LSFT, KC_F), MT(MOD_RSFT, KC_J), COMBO_END};
 const uint16_t PROGMEM combo1[] = { KC_C, KC_X, COMBO_END};
 const uint16_t PROGMEM combo2[] = { KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM combo3[] = { KC_G, KC_H, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_CAPS),
     COMBO(combo1, LCTL(KC_C)),
     COMBO(combo2, LCTL(KC_V)),
-    COMBO(combo3, LALT(KC_TAB)),
 };
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
@@ -89,7 +87,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return 0;
         case TD(DANCE_3):
             return TAPPING_TERM + 100;
-        case KC_TRANSPARENT:
+        case LALT(KC_TAB):
             return 0;
         default:
             return TAPPING_TERM;
