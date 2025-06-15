@@ -133,6 +133,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KC_LEFT:
         case KC_DOWN:
         case KC_RIGHT:
+        case TD(DANCE_2):
         case KC_UP:
         case KC_L:
           break; // allow arrow keys and L
