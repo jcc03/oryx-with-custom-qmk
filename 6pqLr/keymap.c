@@ -268,7 +268,7 @@ tap_dance_action_t tap_dance_actions[] = {
   bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
     uint16_t other_keycode, keyrecord_t* other_record) {
 // Always treat LT(1, KC_SPACE)/TD(DANCE_2) as a chord (hold), regardless of context
-  if (tap_hold_keycode == LT(1, KC_SPACE)) {
+  if (tap_hold_keycode == TD(DANCE_2)) {
     return true;
 } 
 
